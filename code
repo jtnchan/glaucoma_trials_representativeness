@@ -1,0 +1,267 @@
+#Load data ####
+install.packages("dplyr")
+library(dplyr)
+
+glaucoma <- read.csv("/Users/justinechan/Desktop/glaucoma.csv", stringsAsFactors=T)
+
+#Check data ####
+levels(glaucoma$Phase)
+levels(glaucoma$Masking)
+levels(glaucoma$Location_Group)
+levels(glaucoma$Initiation_Year_Phase)
+ 
+
+#Kruskal-Wallis test ####
+#Phase ####
+kruskal.test(SexF_Per ~ Phase, data = glaucoma)
+  #Kruskal-Wallis chi-squared = 2.8481, df = 4, p-value = 0.5836
+
+kruskal.test(CaucasianPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 2.9362, df = 4, p-value = 0.5686
+
+kruskal.test(AsianPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 4.3499, df = 4, p-value = 0.3607
+
+kruskal.test(BlackPer ~ Phase, data = glaucoma)
+# Kruskal-Wallis chi-squared = 2.6579, df = 4, p-value = 0.6166
+
+kruskal.test(AIANPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 3.2416, df = 4, p-value = 0.5182
+
+kruskal.test(NHPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 2.5422, df = 4, p-value = 0.6371
+
+kruskal.test(MixedPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 1.5104, df = 4, p-value = 0.8248
+
+kruskal.test(HispanicPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 3.1529, df = 4, p-value = 0.5326
+
+kruskal.test(UnknownPer ~ Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 5.632, df = 4, p-value = 0.2284
+
+
+#Blinding ####
+kruskal.test(SexF_Per ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 0.3765, df = 2, p-value = 0.8284
+
+kruskal.test(CaucasianPer ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 1.2298, df = 2, p-value = 0.5407
+
+kruskal.test(AsianPer ~ Masking, data = glaucoma)
+# Kruskal-Wallis chi-squared = 2.169, df = 2, p-value = 0.3381
+
+kruskal.test(BlackPer ~ Masking, data = glaucoma)
+# Kruskal-Wallis chi-squared = 3.8112, df = 2, p-value = 0.1487
+
+kruskal.test(AIANPer ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 4.0192, df = 2, p-value = 0.134
+
+kruskal.test(NHPer ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 3.7631, df = 2, p-value = 0.1524
+
+kruskal.test(MixedPer ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 4.3884, df = 2, p-value = 0.1114
+
+kruskal.test(HispanicPer ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 3.1939, df = 2, p-value = 0.2025
+
+kruskal.test(UnknownPer ~ Masking, data = glaucoma)
+#Kruskal-Wallis chi-squared = 0.46742, df = 2, p-value = 0.7916
+
+#Location####
+kruskal.test(SexF_Per ~ Location_Group, data = glaucoma)
+#Kruskal-Wallis chi-squared = 4.0572, df = 3, p-value = 0.2554
+
+kruskal.test(CaucasianPer ~ Location_Group, data = glaucoma)
+#Kruskal-Wallis chi-squared = 8.7487, df = 3, p-value = 0.03283
+
+kruskal.test(AsianPer ~ Location_Group, data = glaucoma)
+# Kruskal-Wallis chi-squared = 8.9585, df = 3, p-value = 0.02985
+
+kruskal.test(BlackPer ~ Location_Group, data = glaucoma)
+# Kruskal-Wallis chi-squared = 11.781, df = 3, p-value = 0.008172
+
+kruskal.test(AIANPer ~ Location_Group, data = glaucoma)
+#Kruskal-Wallis chi-squared = 12.437, df = 3, p-value = 0.006027
+
+kruskal.test(NHPer ~ Location_Group, data = glaucoma)
+# Kruskal-Wallis chi-squared = 12.056, df = 3, p-value = 0.007193
+
+kruskal.test(MixedPer ~ Location_Group, data = glaucoma)
+# Kruskal-Wallis chi-squared = 8.2718, df = 3, p-value = 0.04072
+
+kruskal.test(HispanicPer ~ Location_Group, data = glaucoma)
+#Kruskal-Wallis chi-squared = 11.922, df = 3, p-value = 0.007654
+
+kruskal.test(UnknownPer ~ Location_Group, data = glaucoma)
+#Kruskal-Wallis chi-squared = 9.5867, df = 3, p-value = 0.02243
+
+
+#Initiation year
+kruskal.test(SexF_Per ~ Initiation_Year_Phase, data = glaucoma)
+# Kruskal-Wallis chi-squared = 1.0132, df = 2, p-value = 0.6026
+
+kruskal.test(CaucasianPer ~ Initiation_Year_Phase, data = glaucoma)
+# Kruskal-Wallis chi-squared = 18.506, df = 2, p-value = 9.584e-05
+
+kruskal.test(AsianPer ~ Initiation_Year_Phase, data = glaucoma)
+# Kruskal-Wallis chi-squared = 24.561, df = 2, p-value = 4.642e-06
+
+kruskal.test(BlackPer ~ Initiation_Year_Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 16.066, df = 2, p-value = 0.0003246
+
+kruskal.test(AIANPer ~ Initiation_Year_Phase, data = glaucoma)
+# Kruskal-Wallis chi-squared = 21.494, df = 2, p-value = 2.151e-05
+
+kruskal.test(NHPer ~ Initiation_Year_Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 24.424, df = 2, p-value = 4.97e-06
+
+kruskal.test(MixedPer ~ Initiation_Year_Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 22.127, df = 2, p-value = 1.567e-05
+
+kruskal.test(HispanicPer ~ Initiation_Year_Phase, data = glaucoma)
+# Kruskal-Wallis chi-squared = 23.431, df = 2, p-value = 8.164e-06
+
+kruskal.test(UnknownPer ~ Initiation_Year_Phase, data = glaucoma)
+#Kruskal-Wallis chi-squared = 10.159, df = 2, p-value = 0.006223
+
+#Dunn test ####
+install.packages("FSA")
+library(FSA)
+
+dunnTest(as.numeric(CaucasianPer) ~ Initiation_Year_Phase,
+              data=glaucoma,
+              method="bh")
+#               Comparison          Z      P.unadj        P.adj
+# 1 2006-2011 - 2012-2017 -3.8120525 0.0001378176 0.0004134528
+# 2 2006-2011 - 2018-2022 -3.2481390 0.0011616253 0.0017424379
+# 3 2012-2017 - 2018-2022 -0.5383008 0.5903693811 0.5903693811
+
+dunnTest(as.numeric(AsianPer) ~ Initiation_Year_Phase,
+              data=glaucoma,
+              method="bh")
+# Comparison          Z      P.unadj        P.adj
+# 1 2006-2011 - 2012-2017 -4.7647969 1.890440e-06 5.671320e-06
+# 2 2006-2011 - 2018-2022 -3.0091375 2.619905e-03 3.929857e-03
+# 3 2012-2017 - 2018-2022  0.3850453 7.002038e-01 7.002038e-01
+
+dunnTest(as.numeric(BlackPer) ~ Initiation_Year_Phase,
+            data=glaucoma,
+            method="bh")
+# Comparison          Z      P.unadj       P.adj
+# 1 2006-2011 - 2012-2017 -3.6289089 0.0002846217 0.000853865
+# 2 2006-2011 - 2018-2022 -2.9098691 0.0036158020 0.005423703
+# 3 2012-2017 - 2018-2022 -0.3289934 0.7421606401 0.742160640
+
+dunnTest(as.numeric(AIANPer) ~ Initiation_Year_Phase,
+              data=glaucoma,
+              method="bh")
+# Comparison         Z      P.unadj        P.adj
+# 1 2006-2011 - 2012-2017 -3.870857 0.0001084534 0.0003253602
+# 2 2006-2011 - 2018-2022 -3.789116 0.0001511841 0.0002267762
+# 3 2012-2017 - 2018-2022 -1.040782 0.2979767634 0.2979767634
+
+dunnTest(as.numeric(NHPer) ~ Initiation_Year_Phase,
+         data=glaucoma,
+         method="bh")
+# Comparison         Z      P.unadj        P.adj
+# 1 2006-2011 - 2012-2017 -4.049199 5.139328e-05 7.708992e-05
+# 2 2006-2011 - 2018-2022 -4.116671 3.843839e-05 1.153152e-04
+# 3 2012-2017 - 2018-2022 -1.242743 2.139625e-01 2.139625e-01
+
+dunnTest(as.numeric(HispanicPer) ~ Initiation_Year_Phase,
+         data=glaucoma,
+         method="bh")
+# Comparison          Z      P.unadj        P.adj
+# 1 2006-2011 - 2012-2017 -4.4619056 0.0000081234 0.0000243702
+# 2 2006-2011 - 2018-2022 -3.3770226 0.0007327502 0.0010991253
+# 3 2012-2017 - 2018-2022 -0.2023686 0.8396285935 0.8396285935
+
+dunnTest(as.numeric(UnknownPer) ~ Initiation_Year_Phase,
+         data=glaucoma,
+         method="bh")
+
+# Comparison          Z     P.unadj       P.adj
+# 1 2006-2011 - 2012-2017 -3.0327327 0.002423502 0.007270505
+# 2 2006-2011 - 2018-2022 -2.0205785 0.043323414 0.064985121
+# 3 2012-2017 - 2018-2022  0.1390666 0.889397486 0.889397486
+
+
+
+dunnTest(as.numeric(CaucasianPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison          Z    P.unadj      P.adj
+# 1         Global - Non-US  0.7989049 0.42434555 0.63651833
+# 2  Global - United States -0.7774608 0.43688696 0.52426435
+# 3  Non-US - United States -2.1161283 0.03433390 0.10300170
+# 4        Global - Unknown  1.1942850 0.23236652 0.46473303
+# 5        Non-US - Unknown  0.5190179 0.60374823 0.60374823
+# 6 United States - Unknown  2.4093904 0.01597919 0.09587516
+
+dunnTest(as.numeric(AsianPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison          Z    P.unadj      P.adj
+# 1         Global - Non-US  1.3065017 0.19138200 0.28707300
+# 2  Global - United States -0.2624280 0.79299148 0.79299148
+# 3  Non-US - United States -2.2151012 0.02675312 0.08025936
+# 4        Global - Unknown  1.5523175 0.12058627 0.24117254
+# 5        Non-US - Unknown  0.3977266 0.69083175 0.82899811
+# 6 United States - Unknown  2.3492134 0.01881312 0.11287873
+
+dunnTest(as.numeric(BlackPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison           Z     P.unadj      P.adj
+# 1         Global - Non-US  0.91392540 0.360756044 0.43290725
+# 2  Global - United States -1.16471088 0.244136043 0.48827209
+# 3  Non-US - United States -2.76065162 0.005768618 0.03461171
+# 4        Global - Unknown  0.92512661 0.354900051 0.53235008
+# 5        Non-US - Unknown  0.09729755 0.922490099 0.92249010
+# 6 United States - Unknown  2.45469626 0.014100367 0.04230110
+
+dunnTest(as.numeric(AIANPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison           Z    P.unadj      P.adj
+# 1         Global - Non-US -0.28357887 0.77673313 0.93207976
+# 2  Global - United States -2.24170689 0.02498032 0.04996064
+# 3  Non-US - United States -2.35674443 0.01843593 0.05530779
+# 4        Global - Unknown  0.08015078 0.93611733 0.93611733
+# 5        Non-US - Unknown  0.38308573 0.70165620 1.00000000
+# 6 United States - Unknown  2.45184372 0.01421264 0.08527583
+
+dunnTest(as.numeric(NHPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison           Z    P.unadj      P.adj
+# 1         Global - Non-US -0.19439374 0.84586759 1.00000000
+# 2  Global - United States -2.16512521 0.03037810 0.06075620
+# 3  Non-US - United States -2.39130486 0.01678861 0.10073164
+# 4        Global - Unknown  0.08919397 0.92892776 0.92892776
+# 5        Non-US - Unknown  0.30115349 0.76329745 1.00000000
+# 6 United States - Unknown  2.38382942 0.01713354 0.05140063
+
+dunnTest(as.numeric(HispanicPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison          Z     P.unadj      P.adj
+# 1         Global - Non-US -0.5064478 0.612542298 0.73505076
+# 2  Global - United States -2.1437086 0.032056245 0.09616873
+# 3  Non-US - United States -1.9131712 0.055726133 0.11145227
+# 4        Global - Unknown  0.3572556 0.720900479 0.72090048
+# 5        Non-US - Unknown  0.9251350 0.354895704 0.53234356
+# 6 United States - Unknown  2.7197023 0.006534072 0.03920443
+
+dunnTest(as.numeric(UnknownPer) ~ Location_Group,
+         data=glaucoma,
+         method="bh")
+# Comparison          Z    P.unadj      P.adj
+# 1         Global - Non-US  1.7360831 0.08254914 0.12382371
+# 2  Global - United States  0.5273192 0.59797194 0.59797194
+# 3  Non-US - United States -1.8620325 0.06259851 0.12519702
+# 4        Global - Unknown  2.2831994 0.02241863 0.06725588
+# 5        Non-US - Unknown  0.7766372 0.43737284 0.52484741
+# 6 United States - Unknown  2.5000241 0.01241849 0.07451092
